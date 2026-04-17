@@ -1,0 +1,172 @@
+/* ── Reset & base ─────────────────────────────────────────────────────── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+  font-size: 15px;
+  background: #f5f4f0;
+  color: #1a1a1a;
+  line-height: 1.6;
+}
+
+/* ── Layout ───────────────────────────────────────────────────────────── */
+.app { min-height: 100vh; display: flex; flex-direction: column; }
+
+.app-header {
+  background: #fff;
+  border-bottom: 1px solid #e5e5e0;
+  padding: 1rem 0;
+}
+.app-header-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+.app-header h1 { font-size: 20px; font-weight: 500; }
+.app-header p  { font-size: 13px; color: #666; margin-top: 2px; }
+
+.app-main {
+  max-width: 1100px;
+  margin: 1.5rem auto;
+  padding: 0 1.5rem;
+  display: grid;
+  grid-template-columns: 1fr 340px;
+  gap: 1.25rem;
+  align-items: start;
+}
+
+@media (max-width: 800px) {
+  .app-main { grid-template-columns: 1fr; }
+}
+
+/* ── Cards ────────────────────────────────────────────────────────────── */
+.card {
+  background: #fff;
+  border: 1px solid #e5e5e0;
+  border-radius: 10px;
+  padding: 1.25rem;
+}
+
+.card + .card { margin-top: 1rem; }
+
+.card-title {
+  font-size: 14px;
+  font-weight: 500;
+  color: #666;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 1rem;
+}
+
+
+/* ── Ticket input ─────────────────────────────────────────────────────── */
+.ticket-input {
+  width: 100%;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 10px 12px;
+  font-size: 14px;
+  font-family: inherit;
+  background: #fafafa;
+  color: #1a1a1a;
+  resize: vertical;
+  outline: none;
+  line-height: 1.6;
+}
+.ticket-input:focus { border-color: #aaa; background: #fff; }
+
+.submit-btn {
+  margin-top: 10px;
+  width: 100%;
+  padding: 10px;
+  font-size: 14px;
+  font-weight: 500;
+  font-family: inherit;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  background: #fff;
+  color: #1a1a1a;
+  cursor: pointer;
+  transition: background 0.12s;
+}
+.submit-btn:hover:not(:disabled) { background: #f0f0ec; }
+.submit-btn:disabled { opacity: 0.4; cursor: not-allowed; }
+
+
+
+/* ── Result card ──────────────────────────────────────────────────────── */
+.result-card { margin-top: 1rem; }
+
+.result-row {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 10px 0;
+  border-top: 1px solid #f0f0ec;
+}
+.result-row:first-of-type { border-top: none; }
+
+.result-label {
+  font-size: 12px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: #999;
+  min-width: 80px;
+  padding-top: 3px;
+}
+
+
+
+/* ── Tags ─────────────────────────────────────────────────────────────── */
+.tag-list { display: flex; flex-wrap: wrap; gap: 6px; }
+.tag {
+  font-size: 12px;
+  padding: 3px 9px;
+  border-radius: 20px;
+  border: 1px solid #e0e0da;
+  background: #f5f4f0;
+  color: #555;
+}
+
+/* ── Routing card ─────────────────────────────────────────────────────── */
+.routing-card {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  padding: 10px 12px;
+  background: #f9f9f6;
+  border-radius: 8px;
+  border: 1px solid #e8e8e2;
+  flex: 1;
+}
+.routing-icon   { font-size: 20px; margin-top: 2px; }
+.routing-team   { font-size: 14px; font-weight: 500; }
+.routing-reason { font-size: 12px; color: #666; margin-top: 2px; }
+
+/* ── Summary ──────────────────────────────────────────────────────────── */
+.summary-block {
+  padding-top: 10px;
+  border-top: 1px solid #f0f0ec;
+}
+.summary-text {
+  font-size: 13px;
+  color: #555;
+  margin-top: 6px;
+  line-height: 1.7;
+  padding: 10px 12px;
+  background: #f9f9f6;
+  border-left: 2px solid #ddd;
+  border-radius: 0 6px 6px 0;
+}
+
+
+
+/* ── Result meta ──────────────────────────────────────────────────────── */
+.result-meta {
+  margin-top: 12px;
+  font-size: 11px;
+  color: #bbb;
+  border-top: 1px solid #f0f0ec;
+  padding-top: 10px;
+}

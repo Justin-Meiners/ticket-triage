@@ -1,0 +1,1 @@
+This is a work in progress proof of concept for a ticket triage system that utilizes a rule-based system to determine severity of a ticket. For ambiguous tickets, an OpenAI API call will be used to help determine the severity of the ticket.
