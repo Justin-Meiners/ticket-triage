@@ -20,7 +20,6 @@ export default function TriageResult({ result }) {
             <div className="result-row routing-row">
                 <span className="result-label">Route To</span>
                 <div className="routing-card">
-                    <span className="routing-icon">{result.team_icon}</span>
                     <div>
                         <div className="routing-team">{result.team}</div>
                         <div className="routing-reason">{result.routing_reason}</div>

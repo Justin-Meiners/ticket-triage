@@ -9,7 +9,7 @@ app = FastAPI(title="Ticket Triage API")
 
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["http://localhost:5173"],  # update to your S3/EC2 URL in prod
+    allow_origins=["http://localhost:5174"], 
     allow_methods=["*"],
     allow_headers=["*"],
 )
