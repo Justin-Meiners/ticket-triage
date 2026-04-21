@@ -1,12 +1,24 @@
-
+function ConfidenceBar({ confidence, usedAI }) {
+    const pct = Math.round(confidence * 100);
+    const label = usedAI ? `AI Overlay ${pct}%` : `Rule-Based ${pct}%`;
+    return (
+        <div className="confidence-wrap">
+            <div className="confidence-bar-bg">
+                <div className="confidence-bar-fill"
+                style={{ width: `${pct}%` }}/>
+            </div>
+            <span className="confidence-label">{label}</span>
+        </div>
+    )
+}
 
 export default function TriageResult({ result }) {
     if (!result) return null;
-
     return (
         <div className="triage-result card">
             <h2 className="card-title">Triage Result</h2>
             <div className="result-row">
+                <ConfidenceBar confidence={result.confidence} usedAI={result.ai_used} />
                 <span className="result-label">Categories</span>
                 <div className="tag-list">
                     {(result.tags ?? []).map((category) => (
