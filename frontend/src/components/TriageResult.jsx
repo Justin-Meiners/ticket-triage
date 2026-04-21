@@ -1,3 +1,15 @@
+const URGENCY_STYLES = {
+  critical: { className: "badge badge-critical", label: "▲ Critical" },
+  high:     { className: "badge badge-high",     label: "▲ High"     },
+  medium:   { className: "badge badge-medium",   label: "● Medium"   },
+  low:      { className: "badge badge-low",      label: "▼ Low"      },
+};
+
+function UrgencyBadge({ urgency }) {
+  const key    = urgency?.toLowerCase() ?? "medium";
+  const config = URGENCY_STYLES[key] ?? URGENCY_STYLES.medium;
+  return <span className={config.className}>{config.label}</span>;
+}
 function ConfidenceBar({ confidence, usedAI }) {
     const pct = Math.round(confidence * 100);
     const label = usedAI ? `AI Overlay ${pct}%` : `Rule-Based ${pct}%`;
@@ -17,8 +29,12 @@ export default function TriageResult({ result }) {
     return (
         <div className="triage-result card">
             <h2 className="card-title">Triage Result</h2>
+            <ConfidenceBar confidence={result.confidence} usedAI={result.ai_used} />
             <div className="result-row">
-                <ConfidenceBar confidence={result.confidence} usedAI={result.ai_used} />
+                <span className="result-label">Urgency</span>
+                <UrgencyBadge urgency={result.urgency} />
+            </div>
+            <div className="result-row">
                 <span className="result-label">Categories</span>
                 <div className="tag-list">
                     {(result.tags ?? []).map((category) => (

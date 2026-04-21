@@ -10,6 +10,8 @@ class TriageRequest(BaseModel):
 
 
 class TriageResponse(BaseModel):
+    urgency: str
+    category: str
     tags: list[str]
     team: str
     routing_reason: str
@@ -22,7 +24,9 @@ class TriageResponse(BaseModel):
 async def triage(req: TriageRequest):
     result = await classify_ticket(req.text)
     return {
-        "tags": [result["urgency"], result["category"]],
+        "urgency": result["urgency"],
+        "category": result["category"],
+        "tags": [result["category"]],
         "team": result["routing"],
         "routing_reason": result.get("routing_reason", ""),
         "confidence": result["confidence"],

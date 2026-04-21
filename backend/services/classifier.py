@@ -96,12 +96,20 @@ async def classify_with_ai(text: str) -> dict:
     return data
 
 
+URGENCY_RANK = {"critical": 3, "high": 2, "medium": 1, "low": 0}
+
 async def classify_ticket(text: str) -> dict:
     result = rule_based_classify(text)
 
     if result is None or result["confidence"] < CONFIDENCE_THRESHOLD:
         ai_result = await classify_with_ai(text)
         ai_result.setdefault("summary", "Classified by AI.")
+        # Use rule-based urgency if it's more sever than AI's prediction
+        if result is not None:
+            rb_rank = URGENCY_RANK.get(result["urgency"], 0)
+            ai_rank = URGENCY_RANK.get(ai_result.get("urgency", "low"), 0)
+            if rb_rank > ai_rank:
+                ai_result["urgency"] = result["urgency"]
         return ai_result
 
     result["ai_used"] = False
