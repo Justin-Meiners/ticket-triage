@@ -240,3 +240,20 @@ body {
 .history-date    { font-size: 11px; color: #bbb; margin-top: 4px; display: block; }
 
 .muted-text { font-size: 13px; color: #aaa; }
+
+
+/* ── Preset chips ─────────────────────────────────────────────────────── */
+.preset-row { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 0.75rem; }
+
+.preset-chip {
+  font-size: 12px;
+  padding: 4px 10px;
+  border: 1px solid #ddd;
+  border-radius: 20px;
+  background: transparent;
+  color: #555;
+  cursor: pointer;
+  transition: all 0.12s;
+}
+.preset-chip:hover  { background: #f0f0ec; color: #1a1a1a; }
+.preset-chip.active { background: #e8f0fb; color: #185FA5; border-color: #b8d0f5; }

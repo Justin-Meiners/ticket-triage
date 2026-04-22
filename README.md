@@ -31,13 +31,13 @@ A full-stack support ticket classification tool that combines a keyword-based ru
 - An OpenAI API key
 
 ### Backend
-cd backend
-python -m venv venv
-source venv/bin/activate
-pip install -r requirements.txt
+Create a .env file and place "OPENAI_API_KEY={key}" and then run the following commands
 
-# Create a .env file and place "OPENAI_API_KEY={key}"
 
+cd backend \
+python -m venv venv \ 
+source venv/bin/activate \
+pip install -r requirements.txt \
 uvicorn main:app --reload
 
 
