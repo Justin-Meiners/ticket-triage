@@ -2,11 +2,13 @@ import { useState } from 'react'
 import './App.css'
 import TicketForm from './components/TicketForm'
 import TriageResult from './components/TriageResult'
+import TicketHistory from './components/TicketHistory'
 
 function App() {
   const [loading, setLoading] = useState(false)
   const [result, setResult] = useState(null)
   const [error, setError] = useState(null)
+  const [refreshKey, setRefreshKey] = useState(0)
 
   async function handleSubmit(ticketText) {
     setLoading(true)
@@ -20,6 +22,7 @@ function App() {
       if (!res.ok) throw new Error(`Server error: ${res.status}`)
       const data = await res.json()
       setResult(data)
+      setRefreshKey((k) => k + 1)
     } catch (err) {
       setError(err.message)
     } finally {
@@ -40,6 +43,9 @@ function App() {
           <TicketForm onSubmit={handleSubmit} loading={loading} />
           {error && <p className="error-text">{error}</p>}
           <TriageResult result={result} />
+        </div>
+        <div className="right-col">
+           <TicketHistory refreshKey={refreshKey} onSelect={setResult} />
         </div>
       </main>
     </div>

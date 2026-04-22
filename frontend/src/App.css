@@ -192,3 +192,51 @@ body {
   margin-top: 4px;
   display: block;
 }
+
+/* ── History ──────────────────────────────────────────────────────────── */
+.history-card { position: sticky; top: 1.5rem; }
+
+.history-list { list-style: none; margin-top: 0.25rem; }
+
+.history-item {
+  padding: 10px 10px;
+  border-radius: 8px;
+  cursor: pointer;
+  border: 1px solid transparent;
+  transition: border-color 0.12s, background 0.12s;
+  margin-bottom: 6px;
+}
+.history-item:hover { background: #f9f9f6; border-color: #e5e5e0; }
+
+.history-item-header {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-bottom: 4px;
+}
+
+.urgency-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+.history-urgency { font-size: 12px; font-weight: 500; }
+.history-team    { font-size: 12px; color: #777; margin-left: auto; }
+
+.delete-btn {
+  background: none;
+  border: none;
+  color: #bbb;
+  cursor: pointer;
+  font-size: 16px;
+  line-height: 1;
+  padding: 0 2px;
+  transition: color 0.1s;
+}
+.delete-btn:hover { color: #a32d2d; }
+
+.history-snippet { font-size: 12px; color: #666; line-height: 1.5; }
+.history-date    { font-size: 11px; color: #bbb; margin-top: 4px; display: block; }
+
+.muted-text { font-size: 13px; color: #aaa; }
