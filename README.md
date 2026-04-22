@@ -31,7 +31,7 @@ A full-stack support ticket classification tool that combines a keyword-based ru
 - An OpenAI API key
 
 ### Backend
-Create a .env file and place "OPENAI_API_KEY={key}" and then run the following commands
+- Create a .env file and place "OPENAI_API_KEY={key}" and then run the following commands
 
 
 cd backend \
